@@ -24,8 +24,8 @@ class Album():
             
 
     def remover(self, dados):
-        ultimo = self.inicio
         aux = self.inicio
+        ultimo = self.inicio
         while aux is not None:
             if aux.dados == dados:
                 ultimo.proximo = aux.proximo
@@ -34,36 +34,42 @@ class Album():
 
     def print_list(self):
         aux = self.inicio
-        prnt_list = list()
+        prnt_list= list()  
         while aux is not None:
             prnt_list.append(aux.dados.list_data())
             aux = aux.proximo
+        x = prnt_list
+        a = sorted(x)
         print(prnt_list)
+        return prnt_list
+
+    def print_list_sorted(self):
+        aux = self.inicio
+        prnt_list= list()  
+        while aux is not None:
+            prnt_list.append(aux.dados.list_data())
+            aux = aux.proximo
+        x = prnt_list
+        a = sorted(x)
+        print(a)
         return prnt_list
 
     
                         
   
-p = Pessoa("Felipe", 92, 1.65, "Brasil")
-p1 = Pessoa("Laura", 60, 1.66, "Brasil")
-p2 = Pessoa("Vanda", 68, 1.63, "Brasil")
+p = Pessoa("Felipe", 92, 1.65, "França")
+p1 = Pessoa("Laura", 60, 1.66, "America")
+p2 = Pessoa("Vanda", 68, 1.63, "México")
+p3 = Pessoa("Vanda", 68, 1.63, "México")
+p4 = Pessoa("Vanda", 68, 1.63, "México")
+p5 = Pessoa("Vanda", 68, 1.63, "México")
 
 Lista = Album()
 Lista.inserir(p)
 Lista.inserir(p1)
 Lista.inserir(p2)
-Lista.buscar(p)
-Lista.buscar(p1)
-Lista.buscar(p2)
+Lista.inserir(p3)
+Lista.inserir(p4)
+Lista.inserir(p5)
 Lista.print_list()
-
-
-
-
-
-
-
-
-
-
-
+Lista.print_list_sorted()
