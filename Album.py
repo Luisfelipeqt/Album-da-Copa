@@ -24,13 +24,25 @@ class Album():
             
 
     def remover(self, dados):
-        aux = self.inicio
-        ultimo = self.inicio
-        while aux is not None:
-            if aux.dados == dados:
-                ultimo.proximo = aux.proximo
-                return aux
-            aux = aux.proximo   
+        assert self.inicio, "Impossivel remover de lista vazia!"
+
+        if self.inicio.dados == dados:
+            self.inicio = self.inicio.proximo
+        else:
+
+            anterior = None
+            corrente = self.inicio
+
+            while corrente and corrente.dados != dados:
+                anterior = corrente
+                corrente = corrente.proximo
+            
+            if corrente:
+                anterior.proximo = corrente.proximo
+            else:
+                print("Não está na lista")
+        self.tamanho = self.tamanho - 1
+
 
     def print_list(self):
         aux = self.inicio
@@ -60,16 +72,12 @@ class Album():
 p = Pessoa("Felipe", 92, 1.65, "França")
 p1 = Pessoa("Laura", 60, 1.66, "America")
 p2 = Pessoa("Vanda", 68, 1.63, "México")
-p3 = Pessoa("Vanda", 68, 1.63, "México")
-p4 = Pessoa("Vanda", 68, 1.63, "México")
-p5 = Pessoa("Vanda", 68, 1.63, "México")
+
 
 Lista = Album()
 Lista.inserir(p)
 Lista.inserir(p1)
 Lista.inserir(p2)
-Lista.inserir(p3)
-Lista.inserir(p4)
-Lista.inserir(p5)
+Lista.remover(p1)
 Lista.print_list()
 Lista.print_list_sorted()
