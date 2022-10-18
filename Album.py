@@ -13,15 +13,28 @@ class Album():
         self.inicio = novo
         self.tamanho = self.tamanho + 1
 
-        
+
+
+
+
     def buscar(self, dados):
+        if self.inicio == None:
+            print('Não há valor!')
+            return None
+
         aux = self.inicio
-        while aux is not None:
-            if aux.dados == dados:
-                print(f"O valor que você procura {aux.dados.list_data()} está na lista")
-                return dados
-            aux = aux.proximo
+        while aux.dados != dados:
+            if aux.proximo == None:
+               print('NÃO ESTÁ NA LISTA!')
             
+            else:
+                aux = aux.proximo    
+        return print(f"{aux.dados}")
+    
+    
+        
+        
+                                  
 
     def remover(self, dados):
         assert self.inicio, "Impossivel remover de lista vazia!"
@@ -51,7 +64,6 @@ class Album():
             prnt_list.append(aux.dados.list_data())
             aux = aux.proximo
         x = prnt_list
-        a = sorted(x)
         print(prnt_list)
         return prnt_list
 
@@ -78,6 +90,10 @@ Lista = Album()
 Lista.inserir(p)
 Lista.inserir(p1)
 Lista.inserir(p2)
-Lista.remover(p1)
 Lista.print_list()
 Lista.print_list_sorted()
+Lista.remover(p2)
+Lista.print_list()
+Lista.buscar(p1)
+
+

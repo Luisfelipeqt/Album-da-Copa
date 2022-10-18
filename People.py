@@ -10,10 +10,12 @@ class Pessoa():
 
 
     def list_data(self):
-        return   [self.selecao,
+        return  [ self.selecao,
                  self.nome,
                  self.peso,
-                 self.altura,]
+                 self.altura
+
+        ]
                 
         
              
